@@ -21,7 +21,6 @@ PRODUCT_PACKAGES += \
     libthermalclient \
     libtime_genoff \
     libqmiservices \
-    libril \
     a4wpservice \
     com.quicinc.wbcserviceapp \
     datastatusnotification \
@@ -269,7 +268,6 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/bin/qmuxd:system/bin/qmuxd \
     vendor/nextbit/ether/proprietary/bin/qseecomd:system/bin/qseecomd \
     vendor/nextbit/ether/proprietary/bin/radish:system/bin/radish \
-    vendor/nextbit/ether/proprietary/bin/rild:system/bin/rild \
     vendor/nextbit/ether/proprietary/bin/rfs_access:system/bin/rfs_access \
     vendor/nextbit/ether/proprietary/bin/rmt_storage:system/bin/rmt_storage \
     vendor/nextbit/ether/proprietary/bin/sensors.qcom:system/bin/sensors.qcom \
@@ -543,8 +541,6 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/bin/iop:system/bin/iop \
     vendor/nextbit/ether/proprietary/lib64/libqti-iop.so:system/lib64/libqti-iop.so \
     vendor/nextbit/ether/proprietary/lib/libqti-iop.so:system/lib/libqti-iop.so \
-    vendor/nextbit/ether/proprietary/lib/libril.so:system/lib/libril.so \
-    vendor/nextbit/ether/proprietary/lib64/libril.so:system/lib64/libril.so \
     vendor/nextbit/ether/proprietary/vendor/bin/perfd:system/vendor/bin/perfd \
     vendor/nextbit/ether/proprietary/vendor/etc/perf-profile0.conf:system/vendor/etc/perf-profile0.conf \
     vendor/nextbit/ether/proprietary/vendor/etc/perf-profile1.conf:system/vendor/etc/perf-profile1.conf \
