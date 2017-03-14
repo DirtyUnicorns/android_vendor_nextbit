@@ -88,17 +88,6 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := com.quicinc.wbcserviceapp
-LOCAL_MODULE_OWNER := nextbit
-LOCAL_SRC_FILES := proprietary/app/com.quicinc.wbcserviceapp/com.quicinc.wbcserviceapp.apk
-LOCAL_CERTIFICATE := platform
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := APPS
-LOCAL_DEX_PREOPT := false
-LOCAL_MODULE_SUFFIX := .apk
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := datastatusnotification
 LOCAL_MODULE_OWNER := nextbit
 LOCAL_SRC_FILES := proprietary/app/datastatusnotification/datastatusnotification.apk
@@ -218,6 +207,18 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := imssettings
 LOCAL_MODULE_OWNER := nextbit
 LOCAL_SRC_FILES := proprietary/vendor/app/imssettings/imssettings.apk
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := APPS
+LOCAL_DEX_PREOPT := false
+LOCAL_MODULE_SUFFIX := .apk
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := SecProtect
+LOCAL_MODULE_OWNER := nextbit
+LOCAL_SRC_FILES := proprietary/vendor/app/SecProtect/SecProtect.apk
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := APPS

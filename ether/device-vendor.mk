@@ -16,6 +16,7 @@
 
 PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/bin/adsprpcd:system/bin/adsprpcd \
+    vendor/nextbit/ether/proprietary/bin/ATFWD-daemon:system/bin/ATFWD-daemon \
     vendor/nextbit/ether/proprietary/bin/btnvtool:system/bin/btnvtool \
     vendor/nextbit/ether/proprietary/bin/cnd:system/bin/cnd \
     vendor/nextbit/ether/proprietary/bin/cnss-daemon:system/bin/cnss-daemon \
@@ -45,6 +46,7 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/bin/sensors.qcom:system/bin/sensors.qcom \
     vendor/nextbit/ether/proprietary/bin/time_daemon:system/bin/time_daemon \
     vendor/nextbit/ether/proprietary/bin/wcnss_filter:system/bin/wcnss_filter \
+    vendor/nextbit/ether/proprietary/bin/wfdservice:system/bin/wfdservice \
     vendor/nextbit/ether/proprietary/etc/cne/andsfCne.xml:system/etc/cne/andsfCne.xml \
     vendor/nextbit/ether/proprietary/etc/cne/SwimConfig.xml:system/etc/cne/SwimConfig.xml \
     vendor/nextbit/ether/proprietary/etc/data/dsi_config.xml:system/etc/data/dsi_config.xml \
@@ -118,8 +120,6 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/etc/permissions/com.qti.location.sdk.xml:system/etc/permissions/com.qti.location.sdk.xml \
     vendor/nextbit/ether/proprietary/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml \
     vendor/nextbit/ether/proprietary/etc/permissions/com.quicinc.cne.xml:system/etc/permissions/com.quicinc.cne.xml \
-    vendor/nextbit/ether/proprietary/etc/permissions/com.quicinc.wbcservice.xml:system/etc/permissions/com.quicinc.wbcservice.xml \
-    vendor/nextbit/ether/proprietary/etc/permissions/com.quicinc.wbc.xml:system/etc/permissions/com.quicinc.wbc.xml \
     vendor/nextbit/ether/proprietary/etc/permissions/ConnectivityExt.xml:system/etc/permissions/ConnectivityExt.xml \
     vendor/nextbit/ether/proprietary/etc/permissions/dpmapi.xml:system/etc/permissions/dpmapi.xml \
     vendor/nextbit/ether/proprietary/etc/permissions/qcnvitems.xml:system/etc/permissions/qcnvitems.xml \
@@ -136,17 +136,19 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/framework/com.qti.dpmframework.jar:system/framework/com.qti.dpmframework.jar \
     vendor/nextbit/ether/proprietary/framework/com.qti.location.sdk.jar:system/framework/com.qti.location.sdk.jar \
     vendor/nextbit/ether/proprietary/framework/com.quicinc.cne.jar:system/framework/com.quicinc.cne.jar \
-    vendor/nextbit/ether/proprietary/framework/com.quicinc.wbc.jar:system/framework/com.quicinc.wbc.jar \
-    vendor/nextbit/ether/proprietary/framework/com.quicinc.wbcservice.jar:system/framework/com.quicinc.wbcservice.jar \
     vendor/nextbit/ether/proprietary/framework/ConnectivityExt.jar:system/framework/ConnectivityExt.jar \
     vendor/nextbit/ether/proprietary/framework/dpmapi.jar:system/framework/dpmapi.jar \
     vendor/nextbit/ether/proprietary/framework/qti-telephony-common.jar:system/framework/qti-telephony-common.jar \
     vendor/nextbit/ether/proprietary/framework/QtiTelephonyServicelibrary.jar:system/framework/QtiTelephonyServicelibrary.jar \
+    vendor/nextbit/ether/proprietary/framework/QPerformance.jar:system/framework/QPerformance.jar \
+    vendor/nextbit/ether/proprietary/framework/rcscommon.jar:system/framework/rcscommon.jar \
+    vendor/nextbit/ether/proprietary/framework/rcsimssettings.jar:system/framework/rcsimssettings.jar \
+    vendor/nextbit/ether/proprietary/framework/rcsservice.jar:system/framework/rcsservice.jar \
     vendor/nextbit/ether/proprietary/framework/tcmclient.jar:system/framework/tcmclient.jar \
+    vendor/nextbit/ether/proprietary/framework/WfdCommon.jar:system/framework/WfdCommon.jar \
     vendor/nextbit/ether/proprietary/lib64/hw/fingerprint.msm8992.so:system/lib64/hw/fingerprint.msm8992.so \
     vendor/nextbit/ether/proprietary/lib64/hw/gps.default.so:system/lib64/hw/gps.default.so \
     vendor/nextbit/ether/proprietary/lib64/hw/sensors.msm8992.so:system/lib64/hw/sensors.msm8992.so \
-    vendor/nextbit/ether/proprietary/lib64/hw/wbc_hal.default.so:system/lib64/hw/wbc_hal.default.so \
     vendor/nextbit/ether/proprietary/lib64/libcom_fingerprints_service.so:system/lib64/libcom_fingerprints_service.so \
     vendor/nextbit/ether/proprietary/lib64/libFIHNxp.so:system/lib64/libFIHNxp.so \
     vendor/nextbit/ether/proprietary/lib64/lib_fpc_tac_shared.so:system/lib64/lib_fpc_tac_shared.so \
@@ -155,12 +157,10 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/lib64/libloc_eng.so:system/lib64/libloc_eng.so \
     vendor/nextbit/ether/proprietary/lib64/libtfa98xx_hal.so:system/lib64/libtfa98xx_hal.so \
     vendor/nextbit/ether/proprietary/lib64/libtfa98xx.so:system/lib64/libtfa98xx.so \
-    vendor/nextbit/ether/proprietary/lib64/libwbc_jni.so:system/lib64/libwbc_jni.so \
     vendor/nextbit/ether/proprietary/lib/hw/camera.msm8992.so:system/lib/hw/camera.msm8992.so \
     vendor/nextbit/ether/proprietary/lib/hw/fingerprint.msm8992.so:system/lib/hw/fingerprint.msm8992.so \
     vendor/nextbit/ether/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
     vendor/nextbit/ether/proprietary/lib/hw/sensors.msm8992.so:system/lib/hw/sensors.msm8992.so \
-    vendor/nextbit/ether/proprietary/lib/hw/wbc_hal.default.so:system/lib/hw/wbc_hal.default.so \
     vendor/nextbit/ether/proprietary/lib/libcom_fingerprints_service.so:system/lib/libcom_fingerprints_service.so \
     vendor/nextbit/ether/proprietary/lib/libFIHNxp.so:system/lib/libFIHNxp.so \
     vendor/nextbit/ether/proprietary/lib/lib_fpc_tac_shared.so:system/lib/lib_fpc_tac_shared.so \
@@ -175,7 +175,8 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/lib/libqomx_core.so:system/lib/libqomx_core.so \
     vendor/nextbit/ether/proprietary/lib/libtfa98xx_hal.so:system/lib/libtfa98xx_hal.so \
     vendor/nextbit/ether/proprietary/lib/libtfa98xx.so:system/lib/libtfa98xx.so \
-    vendor/nextbit/ether/proprietary/lib/libwbc_jni.so:system/lib/libwbc_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/bin/audioflacapp:system/vendor/bin/audioflacapp \
+    vendor/nextbit/ether/proprietary/vendor/bin/fidodaemon:system/vendor/bin/fidodaemon \
     vendor/nextbit/ether/proprietary/vendor/bin/perfd:system/vendor/bin/perfd \
     vendor/nextbit/ether/proprietary/vendor/bin/qti:system/vendor/bin/qti \
     vendor/nextbit/ether/proprietary/vendor/bin/slim_daemon:system/vendor/bin/slim_daemon \
@@ -205,19 +206,30 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/hw/keystore.msm8992.so:system/vendor/lib64/hw/keystore.msm8992.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libacdb-fts.so:system/vendor/lib64/libacdb-fts.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libacdbloader.so:system/vendor/lib64/libacdbloader.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libacdbmapper.so:system/vendor/lib64/libacdbmapper.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libacdbrtac.so:system/vendor/lib64/libacdbrtac.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libadiertac.so:system/vendor/lib64/libadiertac.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libadreno_utils.so:system/vendor/lib64/libadreno_utils.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libadsprpc.so:system/vendor/lib64/libadsprpc.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libalarmservice_jni.so:system/vendor/lib64/libalarmservice_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libasn1cper.so:system/vendor/lib64/libasn1cper.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libasn1crt.so:system/vendor/lib64/libasn1crt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libasn1crtx.so:system/vendor/lib64/libasn1crtx.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libaudcal.so:system/vendor/lib64/libaudcal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libaudioalsa.so:system/vendor/lib64/libaudioalsa.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libavenhancements.so:system/vendor/lib64/libavenhancements.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libbccQTI.so:system/vendor/lib64/libbccQTI.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libbtnv.so:system/vendor/lib64/libbtnv.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libbt-vendor.so:system/vendor/lib64/libbt-vendor.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libC2D2.so:system/vendor/lib64/libC2D2.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libc2d30-a4xx.so:system/vendor/lib64/libc2d30-a4xx.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libCB.so:system/vendor/lib64/libCB.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libchromatix_s5k3m2xm_versions.so:system/vendor/lib64/libchromatix_s5k3m2xm_versions.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libchromatix_s5k5e2_versions.so:system/vendor/lib64/libchromatix_s5k5e2_versions.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libcneapiclient.so:system/vendor/lib64/libcneapiclient.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libcneqmiutils.so:system/vendor/lib64/libcneqmiutils.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libcne.so:system/vendor/lib64/libcne.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libCommandSvc.so:system/vendor/lib64/libCommandSvc.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libconfigdb.so:system/vendor/lib64/libconfigdb.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libconnctrl.so:system/vendor/lib64/libconnctrl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libdataitems.so:system/vendor/lib64/libdataitems.so \
@@ -233,9 +245,20 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/libdrmtime.so:system/vendor/lib64/libdrmtime.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libdsi_netctrl.so:system/vendor/lib64/libdsi_netctrl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libdsutils.so:system/vendor/lib64/libdsutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libExtendedExtractor.so:system/vendor/lib64/libExtendedExtractor.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libextendedremotedisplay.so:system/vendor/lib64/libextendedremotedisplay.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libFidoCryptoJNI.so:system/vendor/lib64/libFidoCryptoJNI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libFidoCrypto.so:system/vendor/lib64/libFidoCrypto.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libFIDOKeyProvisioning.so:system/vendor/lib64/libFIDOKeyProvisioning.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libFileMux.so:system/vendor/lib64/libFileMux.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libFlacSwDec.so:system/vendor/lib64/libFlacSwDec.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libflp.so:system/vendor/lib64/libflp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libgdtap.so:system/vendor/lib64/libgdtap.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libgeofence.so:system/vendor/lib64/libgeofence.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libgsl.so:system/vendor/lib64/libgsl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libHevcSwEncoder.so:system/vendor/lib64/libHevcSwEncoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libhwdaphal.so:system/vendor/lib64/libhwdaphal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libI420colorconvert.so:system/vendor/lib64/libI420colorconvert.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libidl.so:system/vendor/lib64/libidl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libimscamera_jni.so:system/vendor/lib64/libimscamera_jni.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-imscamera.so:system/vendor/lib64/lib-imscamera.so \
@@ -253,14 +276,21 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-imsxml.so:system/vendor/lib64/lib-imsxml.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libizat_core.so:system/vendor/lib64/libizat_core.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblbs_core.so:system/vendor/lib64/liblbs_core.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/liblistenjni.so:system/vendor/lib64/liblistenjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/liblistensoundmodel2.so:system/vendor/lib64/liblistensoundmodel2.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libllvm-glnext.so:system/vendor/lib64/libllvm-glnext.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libllvm-qcom.so:system/vendor/lib64/libllvm-qcom.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblocationservice_glue.so:system/vendor/lib64/liblocationservice_glue.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblocationservice.so:system/vendor/lib64/liblocationservice.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libloc_ext.so:system/vendor/lib64/libloc_ext.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblowi_client.so:system/vendor/lib64/liblowi_client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/liblowi_wifihal_nl.so:system/vendor/lib64/liblowi_wifihal_nl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblowi_wifihal.so:system/vendor/lib64/liblowi_wifihal.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/liblqe.so:system/vendor/lib64/liblqe.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmare-1.0.0.so:system/vendor/lib64/libmare-1.0.0.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmare-cpu-1.0.0.so:system/vendor/lib64/libmare-cpu-1.0.0.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmdmdetect.so:system/vendor/lib64/libmdmdetect.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmdsprpc.so:system/vendor/lib64/libmdsprpc.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmm-abl-oem.so:system/vendor/lib64/libmm-abl-oem.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmm-abl.so:system/vendor/lib64/libmm-abl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmm-als.so:system/vendor/lib64/libmm-als.so \
@@ -268,11 +298,33 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmmcamera2_sensor_debug.so:system/vendor/lib64/libmmcamera2_sensor_debug.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmmcamera2_stats_algorithm.so:system/vendor/lib64/libmmcamera2_stats_algorithm.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmmcamera_ov5645.so:system/vendor/lib64/libmmcamera_ov5645.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmm-color-convertor.so:system/vendor/lib64/libmm-color-convertor.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmm-disp-apis.so:system/vendor/lib64/libmm-disp-apis.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmm-hdcpmgr.so:system/vendor/lib64/libmm-hdcpmgr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmhttpstack.so:system/vendor/lib64/libmmhttpstack.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmiipstreammmihttp.so:system/vendor/lib64/libmmiipstreammmihttp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmipstreamaal.so:system/vendor/lib64/libmmipstreamaal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmipstreamnetwork.so:system/vendor/lib64/libmmipstreamnetwork.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmipstreamsourcehttp.so:system/vendor/lib64/libmmipstreamsourcehttp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmipstreamutils.so:system/vendor/lib64/libmmipstreamutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmosal.so:system/vendor/lib64/libmmosal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmparser_lite.so:system/vendor/lib64/libmmparser_lite.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmparser.so:system/vendor/lib64/libmmparser.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libmm-qdcm.so:system/vendor/lib64/libmm-qdcm.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmQSM.so:system/vendor/lib64/libmmQSM.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmrtpdecoder.so:system/vendor/lib64/libmmrtpdecoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmrtpencoder.so:system/vendor/lib64/libmmrtpencoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmwfdinterface.so:system/vendor/lib64/libmmwfdinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmwfdsinkinterface.so:system/vendor/lib64/libmmwfdsinkinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libmmwfdsrcinterface.so:system/vendor/lib64/libmmwfdsrcinterface.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libnetmgr.so:system/vendor/lib64/libnetmgr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libOmxAacDec.so:system/vendor/lib64/libOmxAacDec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libOmxAmrwbplusDec.so:system/vendor/lib64/libOmxAmrwbplusDec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libOmxMux.so:system/vendor/lib64/libOmxMux.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libOmxWmaDec.so:system/vendor/lib64/libOmxWmaDec.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libOpenCL.so:system/vendor/lib64/libOpenCL.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libperipheral_client.so:system/vendor/lib64/libperipheral_client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libpvr.so:system/vendor/lib64/libpvr.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libQBLAS-0.11.38.so:system/vendor/lib64/libQBLAS-0.11.38.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqcci_legacy.so:system/vendor/lib64/libqcci_legacy.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqcmaputils.so:system/vendor/lib64/libqcmaputils.so \
@@ -284,18 +336,25 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqmi_common_so.so:system/vendor/lib64/libqmi_common_so.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqmi_csi.so:system/vendor/lib64/libqmi_csi.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqmi_encdec.so:system/vendor/lib64/libqmi_encdec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libqmiservices.so:system/vendor/lib64/libqmiservices.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqmi.so:system/vendor/lib64/libqmi.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libQSEEComAPI.so:system/vendor/lib64/libQSEEComAPI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libqti-at.so:system/vendor/lib64/libqti-at.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libqti-gt.so:system/vendor/lib64/libqti-gt.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libqti-perfd-client.so:system/vendor/lib64/libqti-perfd-client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libqti_performance.so:system/vendor/lib64/libqti_performance.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libQtiTether.so:system/vendor/lib64/libQtiTether.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libquipc_os_api.so:system/vendor/lib64/libquipc_os_api.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/librcc.so:system/vendor/lib64/librcc.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-rcsimssjni.so:system/vendor/lib64/lib-rcsimssjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/lib-rcsjni.so:system/vendor/lib64/lib-rcsjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/lib_remote_simlock.so:system/vendor/lib64/lib_remote_simlock.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libril-qc-ltedirectdisc.so:system/vendor/lib64/libril-qc-ltedirectdisc.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libril-qc-qmi-1.so:system/vendor/lib64/libril-qc-qmi-1.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libril-qc-radioconfig.so:system/vendor/lib64/libril-qc-radioconfig.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libril-qcril-hook-oem.so:system/vendor/lib64/libril-qcril-hook-oem.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/librilqmiservices.so:system/vendor/lib64/librilqmiservices.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/librmp.so:system/vendor/lib64/librmp.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/librpmb.so:system/vendor/lib64/librpmb.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/librs_adreno_sha1.so:system/vendor/lib64/librs_adreno_sha1.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/librs_adreno.so:system/vendor/lib64/librs_adreno.so \
@@ -304,22 +363,54 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-rtpcore.so:system/vendor/lib64/lib-rtpcore.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-rtpdaemoninterface.so:system/vendor/lib64/lib-rtpdaemoninterface.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/lib-rtpsl.so:system/vendor/lib64/lib-rtpsl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libSampleAuthJNI.so:system/vendor/lib64/libSampleAuthJNI.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libscale.so:system/vendor/lib64/libscale.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsd_sdk_display.so:system/vendor/lib64/libsd_sdk_display.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/lib-sec-disp.so:system/vendor/lib64/lib-sec-disp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libSecureSampleAuthClient.so:system/vendor/lib64/libSecureSampleAuthClient.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libSecureSampleAuthJNI.so:system/vendor/lib64/libSecureSampleAuthJNI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libSecureUILib.so:system/vendor/lib64/libSecureUILib.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsecureui.so:system/vendor/lib64/libsecureui.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsecureuisvc_jni.so:system/vendor/lib64/libsecureuisvc_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsecureui_svcsock.so:system/vendor/lib64/libsecureui_svcsock.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libsensor1.so:system/vendor/lib64/libsensor1.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libsensor_reg.so:system/vendor/lib64/libsensor_reg.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libsettings.so:system/vendor/lib64/libsettings.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsi.so:system/vendor/lib64/libsi.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libslimclient.so:system/vendor/lib64/libslimclient.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libsmemlog.so:system/vendor/lib64/libsmemlog.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libssd.so:system/vendor/lib64/libssd.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libStDrvInt.so:system/vendor/lib64/libStDrvInt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libsubsystem_control.so:system/vendor/lib64/libsubsystem_control.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libsystem_health_mon.so:system/vendor/lib64/libsystem_health_mon.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libthermalioctl.so:system/vendor/lib64/libthermalioctl.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libTimeService.so:system/vendor/lib64/libTimeService.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libtzdrmgenprov.so:system/vendor/lib64/libtzdrmgenprov.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libulp2.so:system/vendor/lib64/libulp2.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libvendorconn.so:system/vendor/lib64/libvendorconn.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libvoice-svc.so:system/vendor/lib64/libvoice-svc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdavenhancements.so:system/vendor/lib64/libwfdavenhancements.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdcommonutils.so:system/vendor/lib64/libwfdcommonutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdhdcpcp.so:system/vendor/lib64/libwfdhdcpcp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdmmsink.so:system/vendor/lib64/libwfdmmsink.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdmmsrc.so:system/vendor/lib64/libwfdmmsrc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdmmutils.so:system/vendor/lib64/libwfdmmutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdnative.so:system/vendor/lib64/libwfdnative.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdrtsp.so:system/vendor/lib64/libwfdrtsp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdservice.so:system/vendor/lib64/libwfdservice.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfdsm.so:system/vendor/lib64/libwfdsm.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfduibcinterface.so:system/vendor/lib64/libwfduibcinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfduibcsinkinterface.so:system/vendor/lib64/libwfduibcsinkinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfduibcsink.so:system/vendor/lib64/libwfduibcsink.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfduibcsrcinterface.so:system/vendor/lib64/libwfduibcsrcinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwfduibcsrc.so:system/vendor/lib64/libwfduibcsrc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libwms.so:system/vendor/lib64/libwms.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libwqe.so:system/vendor/lib64/libwqe.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libxml.so:system/vendor/lib64/libxml.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libxtadapter.so:system/vendor/lib64/libxtadapter.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/libxt_native.so:system/vendor/lib64/libxt_native.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/libxtwifi_ulp_adaptor.so:system/vendor/lib64/libxtwifi_ulp_adaptor.so \
+    vendor/nextbit/ether/proprietary/vendor/lib64/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so \
     vendor/nextbit/ether/proprietary/vendor/lib64/sensors.ssc.so:system/vendor/lib64/sensors.ssc.so \
     vendor/nextbit/ether/proprietary/vendor/lib/egl/eglSubDriverAndroid.so:system/vendor/lib/egl/eglSubDriverAndroid.so \
     vendor/nextbit/ether/proprietary/vendor/lib/egl/libEGL_adreno.so:system/vendor/lib/egl/libEGL_adreno.so \
@@ -335,18 +426,155 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib/hw/sound_trigger.primary.msm8992.so:system/vendor/lib/hw/sound_trigger.primary.msm8992.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libacdb-fts.so:system/vendor/lib/libacdb-fts.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libacdbloader.so:system/vendor/lib/libacdbloader.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libacdbmapper.so:system/vendor/lib/libacdbmapper.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libacdbrtac.so:system/vendor/lib/libacdbrtac.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ad5823_camcorder.so:system/vendor/lib/libactuator_ad5823_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ad5823_camera.so:system/vendor/lib/libactuator_ad5823_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ad5823.so:system/vendor/lib/libactuator_ad5823.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_bu64244gwz_camcorder.so:system/vendor/lib/libactuator_bu64244gwz_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_bu64244gwz_camera.so:system/vendor/lib/libactuator_bu64244gwz_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_bu64244gwz.so:system/vendor/lib/libactuator_bu64244gwz.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9714_camcorder.so:system/vendor/lib/libactuator_dw9714_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9714_camera.so:system/vendor/lib/libactuator_dw9714_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9714.so:system/vendor/lib/libactuator_dw9714.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9716_camcorder.so:system/vendor/lib/libactuator_dw9716_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9716_camera.so:system/vendor/lib/libactuator_dw9716_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9716.so:system/vendor/lib/libactuator_dw9716.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9761b_camcorder.so:system/vendor/lib/libactuator_dw9761b_camcorder.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9761b_camera.so:system/vendor/lib/libactuator_dw9761b_camera.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libactuator_dw9761b.so:system/vendor/lib/libactuator_dw9761b.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898122_camcorder.so:system/vendor/lib/libactuator_lc898122_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898122_camera.so:system/vendor/lib/libactuator_lc898122_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898122.so:system/vendor/lib/libactuator_lc898122.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898212xd_camcorder.so:system/vendor/lib/libactuator_lc898212xd_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898212xd_camera.so:system/vendor/lib/libactuator_lc898212xd_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_lc898212xd.so:system/vendor/lib/libactuator_lc898212xd.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ov8825_camcorder.so:system/vendor/lib/libactuator_ov8825_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ov8825_camera.so:system/vendor/lib/libactuator_ov8825_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_ov8825.so:system/vendor/lib/libactuator_ov8825.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so:system/vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_rohm_bu64243gwz_camera.so:system/vendor/lib/libactuator_rohm_bu64243gwz_camera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libactuator_rohm_bu64243gwz.so:system/vendor/lib/libactuator_rohm_bu64243gwz.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libadiertac.so:system/vendor/lib/libadiertac.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libadreno_utils.so:system/vendor/lib/libadreno_utils.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libadsprpc.so:system/vendor/lib/libadsprpc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libalarmservice_jni.so:system/vendor/lib/libalarmservice_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libasn1cper.so:system/vendor/lib/libasn1cper.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libasn1crt.so:system/vendor/lib/libasn1crt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libasn1crtx.so:system/vendor/lib/libasn1crtx.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libaudcal.so:system/vendor/lib/libaudcal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libaudioalsa.so:system/vendor/lib/libaudioalsa.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libavenhancements.so:system/vendor/lib/libavenhancements.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libbccQTI.so:system/vendor/lib/libbccQTI.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libbtnv.so:system/vendor/lib/libbtnv.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libC2D2.so:system/vendor/lib/libC2D2.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libc2d30-a4xx.so:system/vendor/lib/libc2d30-a4xx.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libCB.so:system/vendor/lib/libCB.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_common.so:system/vendor/lib/libchromatix_imx132_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_cpp_liveshot.so:system/vendor/lib/libchromatix_imx132_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_cpp_preview.so:system/vendor/lib/libchromatix_imx132_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_cpp_snapshot.so:system/vendor/lib/libchromatix_imx132_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_cpp_video.so:system/vendor/lib/libchromatix_imx132_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_default_video.so:system/vendor/lib/libchromatix_imx132_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_liveshot.so:system/vendor/lib/libchromatix_imx132_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_postproc.so:system/vendor/lib/libchromatix_imx132_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_preview.so:system/vendor/lib/libchromatix_imx132_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx132_snapshot.so:system/vendor/lib/libchromatix_imx132_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_common.so:system/vendor/lib/libchromatix_imx135_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_hfr_120.so:system/vendor/lib/libchromatix_imx135_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_hfr_60.so:system/vendor/lib/libchromatix_imx135_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_hfr_90.so:system/vendor/lib/libchromatix_imx135_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_liveshot.so:system/vendor/lib/libchromatix_imx135_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_preview.so:system/vendor/lib/libchromatix_imx135_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_snapshot.so:system/vendor/lib/libchromatix_imx135_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_video_hd.so:system/vendor/lib/libchromatix_imx135_cpp_video_hd.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_cpp_video.so:system/vendor/lib/libchromatix_imx135_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_default_video.so:system/vendor/lib/libchromatix_imx135_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_hfr_120.so:system/vendor/lib/libchromatix_imx135_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_hfr_60.so:system/vendor/lib/libchromatix_imx135_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_hfr_90.so:system/vendor/lib/libchromatix_imx135_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_liveshot.so:system/vendor/lib/libchromatix_imx135_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_postproc.so:system/vendor/lib/libchromatix_imx135_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_preview.so:system/vendor/lib/libchromatix_imx135_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_snapshot.so:system/vendor/lib/libchromatix_imx135_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx135_video_hd.so:system/vendor/lib/libchromatix_imx135_video_hd.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_common.so:system/vendor/lib/libchromatix_imx214_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_hfr_120.so:system/vendor/lib/libchromatix_imx214_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_hfr_240.so:system/vendor/lib/libchromatix_imx214_cpp_hfr_240.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_hfr_60.so:system/vendor/lib/libchromatix_imx214_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_hfr_90.so:system/vendor/lib/libchromatix_imx214_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_liveshot.so:system/vendor/lib/libchromatix_imx214_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_preview.so:system/vendor/lib/libchromatix_imx214_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_snapshot_hdr.so:system/vendor/lib/libchromatix_imx214_cpp_snapshot_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_snapshot.so:system/vendor/lib/libchromatix_imx214_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_video_hdr.so:system/vendor/lib/libchromatix_imx214_cpp_video_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_cpp_video.so:system/vendor/lib/libchromatix_imx214_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_default_video.so:system/vendor/lib/libchromatix_imx214_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_hfr_120.so:system/vendor/lib/libchromatix_imx214_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_hfr_240.so:system/vendor/lib/libchromatix_imx214_hfr_240.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_hfr_60.so:system/vendor/lib/libchromatix_imx214_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_hfr_90.so:system/vendor/lib/libchromatix_imx214_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_liveshot.so:system/vendor/lib/libchromatix_imx214_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_postproc.so:system/vendor/lib/libchromatix_imx214_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_preview.so:system/vendor/lib/libchromatix_imx214_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_snapshot_hdr.so:system/vendor/lib/libchromatix_imx214_snapshot_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_snapshot.so:system/vendor/lib/libchromatix_imx214_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx214_video_hdr.so:system/vendor/lib/libchromatix_imx214_video_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_common.so:system/vendor/lib/libchromatix_imx230_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_hfr_120.so:system/vendor/lib/libchromatix_imx230_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_hfr_60.so:system/vendor/lib/libchromatix_imx230_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_hfr_90.so:system/vendor/lib/libchromatix_imx230_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_liveshot.so:system/vendor/lib/libchromatix_imx230_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_preview.so:system/vendor/lib/libchromatix_imx230_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_snapshot_hdr.so:system/vendor/lib/libchromatix_imx230_cpp_snapshot_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_snapshot.so:system/vendor/lib/libchromatix_imx230_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_video_4k.so:system/vendor/lib/libchromatix_imx230_cpp_video_4k.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_video_hdr.so:system/vendor/lib/libchromatix_imx230_cpp_video_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_cpp_video.so:system/vendor/lib/libchromatix_imx230_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_default_video.so:system/vendor/lib/libchromatix_imx230_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_hfr_120.so:system/vendor/lib/libchromatix_imx230_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_hfr_60.so:system/vendor/lib/libchromatix_imx230_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_hfr_90.so:system/vendor/lib/libchromatix_imx230_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_liveshot.so:system/vendor/lib/libchromatix_imx230_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_postproc.so:system/vendor/lib/libchromatix_imx230_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_preview.so:system/vendor/lib/libchromatix_imx230_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_snapshot_hdr.so:system/vendor/lib/libchromatix_imx230_snapshot_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_snapshot.so:system/vendor/lib/libchromatix_imx230_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_video_4k.so:system/vendor/lib/libchromatix_imx230_video_4k.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx230_video_hdr.so:system/vendor/lib/libchromatix_imx230_video_hdr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_common.so:system/vendor/lib/libchromatix_imx258_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_hfr_120.so:system/vendor/lib/libchromatix_imx258_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_hfr_60.so:system/vendor/lib/libchromatix_imx258_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_hfr_90.so:system/vendor/lib/libchromatix_imx258_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_liveshot.so:system/vendor/lib/libchromatix_imx258_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_preview.so:system/vendor/lib/libchromatix_imx258_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_snapshot.so:system/vendor/lib/libchromatix_imx258_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_cpp_video.so:system/vendor/lib/libchromatix_imx258_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_default_video.so:system/vendor/lib/libchromatix_imx258_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_hfr_120.so:system/vendor/lib/libchromatix_imx258_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_hfr_60.so:system/vendor/lib/libchromatix_imx258_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_hfr_90.so:system/vendor/lib/libchromatix_imx258_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_liveshot.so:system/vendor/lib/libchromatix_imx258_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_postproc.so:system/vendor/lib/libchromatix_imx258_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_preview.so:system/vendor/lib/libchromatix_imx258_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_imx258_snapshot.so:system/vendor/lib/libchromatix_imx258_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_common.so:system/vendor/lib/libchromatix_ov4688_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_hfr_120.so:system/vendor/lib/libchromatix_ov4688_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_hfr_60.so:system/vendor/lib/libchromatix_ov4688_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_hfr_90.so:system/vendor/lib/libchromatix_ov4688_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_liveshot.so:system/vendor/lib/libchromatix_ov4688_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_preview.so:system/vendor/lib/libchromatix_ov4688_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_snapshot.so:system/vendor/lib/libchromatix_ov4688_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_cpp_video.so:system/vendor/lib/libchromatix_ov4688_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_default_video.so:system/vendor/lib/libchromatix_ov4688_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_hfr_120.so:system/vendor/lib/libchromatix_ov4688_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_hfr_60.so:system/vendor/lib/libchromatix_ov4688_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_hfr_90.so:system/vendor/lib/libchromatix_ov4688_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_liveshot.so:system/vendor/lib/libchromatix_ov4688_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_postproc.so:system/vendor/lib/libchromatix_ov4688_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_preview.so:system/vendor/lib/libchromatix_ov4688_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_ov4688_snapshot.so:system/vendor/lib/libchromatix_ov4688_snapshot.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_common.so:system/vendor/lib/libchromatix_s5k3m2xm_common.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_120.so:system/vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_120.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_60.so:system/vendor/lib/libchromatix_s5k3m2xm_cpp_hfr_60.so \
@@ -364,6 +592,24 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_preview.so:system/vendor/lib/libchromatix_s5k3m2xm_preview.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_snapshot.so:system/vendor/lib/libchromatix_s5k3m2xm_snapshot.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xm_versions.so:system/vendor/lib/libchromatix_s5k3m2xm_versions.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_common.so:system/vendor/lib/libchromatix_s5k3m2xx_common.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_120.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_60.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_90.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_liveshot.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_preview.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_snapshot.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_video_4k.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_video_4k.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_cpp_video.so:system/vendor/lib/libchromatix_s5k3m2xx_cpp_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_default_video.so:system/vendor/lib/libchromatix_s5k3m2xx_default_video.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_hfr_120.so:system/vendor/lib/libchromatix_s5k3m2xx_hfr_120.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_hfr_60.so:system/vendor/lib/libchromatix_s5k3m2xx_hfr_60.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_hfr_90.so:system/vendor/lib/libchromatix_s5k3m2xx_hfr_90.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_liveshot.so:system/vendor/lib/libchromatix_s5k3m2xx_liveshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_postproc.so:system/vendor/lib/libchromatix_s5k3m2xx_postproc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_preview.so:system/vendor/lib/libchromatix_s5k3m2xx_preview.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_snapshot.so:system/vendor/lib/libchromatix_s5k3m2xx_snapshot.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k3m2xx_video_4k.so:system/vendor/lib/libchromatix_s5k3m2xx_video_4k.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k5e2_common.so:system/vendor/lib/libchromatix_s5k5e2_common.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k5e2_cpp_liveshot.so:system/vendor/lib/libchromatix_s5k5e2_cpp_liveshot.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libchromatix_s5k5e2_cpp_preview.so:system/vendor/lib/libchromatix_s5k5e2_cpp_preview.so \
@@ -378,36 +624,77 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib/libcneapiclient.so:system/vendor/lib/libcneapiclient.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libcneqmiutils.so:system/vendor/lib/libcneqmiutils.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libcne.so:system/vendor/lib/libcne.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libconfigdb.so:system/vendor/lib/libconfigdb.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libconnctrl.so:system/vendor/lib/libconnctrl.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdataitems.so:system/vendor/lib/libdataitems.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libdisp-aba.so:system/vendor/lib/libdisp-aba.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-dplmedia.so:system/vendor/lib/lib-dplmedia.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdpmctmgr.so:system/vendor/lib/libdpmctmgr.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdpmfdmgr.so:system/vendor/lib/libdpmfdmgr.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdpmframework.so:system/vendor/lib/libdpmframework.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdpmnsrm.so:system/vendor/lib/libdpmnsrm.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdpmtcm.so:system/vendor/lib/libdpmtcm.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libdrc.so:system/vendor/lib/libdrc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libdrmfs.so:system/vendor/lib/libdrmfs.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libdrmtime.so:system/vendor/lib/libdrmtime.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdsi_netctrl.so:system/vendor/lib/libdsi_netctrl.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libdsutils.so:system/vendor/lib/libdsutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libExtendedExtractor.so:system/vendor/lib/libExtendedExtractor.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libextendedremotedisplay.so:system/vendor/lib/libextendedremotedisplay.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libfastcvadsp_stub.so:system/vendor/lib/libfastcvadsp_stub.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libfastcvopt.so:system/vendor/lib/libfastcvopt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libFidoCryptoJNI.so:system/vendor/lib/libFidoCryptoJNI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libFidoCrypto.so:system/vendor/lib/libFidoCrypto.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libFIDOKeyProvisioning.so:system/vendor/lib/libFIDOKeyProvisioning.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libFileMux.so:system/vendor/lib/libFileMux.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libFlacSwDec.so:system/vendor/lib/libFlacSwDec.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libflash_pmic.so:system/vendor/lib/libflash_pmic.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libflp.so:system/vendor/lib/libflp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libgdtap.so:system/vendor/lib/libgdtap.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libgeofence.so:system/vendor/lib/libgeofence.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libgsl.so:system/vendor/lib/libgsl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libHevcSwEncoder.so:system/vendor/lib/libHevcSwEncoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libhwdaphal.so:system/vendor/lib/libhwdaphal.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libI420colorconvert.so:system/vendor/lib/libI420colorconvert.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libidl.so:system/vendor/lib/libidl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libimscamera_jni.so:system/vendor/lib/libimscamera_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imscamera.so:system/vendor/lib/lib-imscamera.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsdpl.so:system/vendor/lib/lib-imsdpl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libimsmedia_jni.so:system/vendor/lib/libimsmedia_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsqimf.so:system/vendor/lib/lib-imsqimf.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsrcscmclient.so:system/vendor/lib/lib-imsrcscmclient.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-ims-rcscmjni.so:system/vendor/lib/lib-ims-rcscmjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsrcscmservice.so:system/vendor/lib/lib-imsrcscmservice.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsrcscm.so:system/vendor/lib/lib-imsrcscm.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsrcs.so:system/vendor/lib/lib-imsrcs.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsSDP.so:system/vendor/lib/lib-imsSDP.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imss.so:system/vendor/lib/lib-imss.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsvt.so:system/vendor/lib/lib-imsvt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-imsxml.so:system/vendor/lib/lib-imsxml.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libizat_core.so:system/vendor/lib/libizat_core.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libjpegdhw.so:system/vendor/lib/libjpegdhw.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libjpegdmahw.so:system/vendor/lib/libjpegdmahw.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libjpegehw.so:system/vendor/lib/libjpegehw.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liblbs_core.so:system/vendor/lib/liblbs_core.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/liblistenjni.so:system/vendor/lib/liblistenjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/liblistensoundmodel2.so:system/vendor/lib/liblistensoundmodel2.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libllvm-glnext.so:system/vendor/lib/libllvm-glnext.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libllvm-qcom.so:system/vendor/lib/libllvm-qcom.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liblocationservice_glue.so:system/vendor/lib/liblocationservice_glue.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liblocationservice.so:system/vendor/lib/liblocationservice.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libloc_ext.so:system/vendor/lib/libloc_ext.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liblowi_client.so:system/vendor/lib/liblowi_client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/liblowi_wifihal_nl.so:system/vendor/lib/liblowi_wifihal_nl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/liblowi_wifihal.so:system/vendor/lib/liblowi_wifihal.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liblqe.so:system/vendor/lib/liblqe.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmare-1.0.0.so:system/vendor/lib/libmare-1.0.0.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmare-cpu-1.0.0.so:system/vendor/lib/libmare-cpu-1.0.0.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmdmdetect.so:system/vendor/lib/libmdmdetect.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmdsprpc.so:system/vendor/lib/libmdsprpc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmm-abl-oem.so:system/vendor/lib/libmm-abl-oem.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmm-abl.so:system/vendor/lib/libmm-abl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmm-als.so:system/vendor/lib/libmm-als.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmcamera2_c2d_module.so:system/vendor/lib/libmmcamera2_c2d_module.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmcamera2_cpp_module.so:system/vendor/lib/libmmcamera2_cpp_module.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmcamera2_frame_algorithm.so:system/vendor/lib/libmmcamera2_frame_algorithm.so \
@@ -494,21 +781,44 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmcamera_vpu_module.so:system/vendor/lib/libmmcamera_vpu_module.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmm-color-convertor.so:system/vendor/lib/libmm-color-convertor.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmm-disp-apis.so:system/vendor/lib/libmm-disp-apis.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmm-hdcpmgr.so:system/vendor/lib/libmm-hdcpmgr.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmhttpstack.so:system/vendor/lib/libmmhttpstack.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmiipstreammmihttp.so:system/vendor/lib/libmmiipstreammmihttp.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmipl.so:system/vendor/lib/libmmipl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmipstreamaal.so:system/vendor/lib/libmmipstreamaal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmipstreamnetwork.so:system/vendor/lib/libmmipstreamnetwork.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmipstreamsourcehttp.so:system/vendor/lib/libmmipstreamsourcehttp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmipstreamutils.so:system/vendor/lib/libmmipstreamutils.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmjpeg.so:system/vendor/lib/libmmjpeg.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmosal.so:system/vendor/lib/libmmosal.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmparser_lite.so:system/vendor/lib/libmmparser_lite.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmparser.so:system/vendor/lib/libmmparser.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmm-qdcm.so:system/vendor/lib/libmm-qdcm.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmqjpeg_codec.so:system/vendor/lib/libmmqjpeg_codec.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libmmqjpegdma.so:system/vendor/lib/libmmqjpegdma.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmQSM.so:system/vendor/lib/libmmQSM.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmrtpdecoder.so:system/vendor/lib/libmmrtpdecoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmrtpencoder.so:system/vendor/lib/libmmrtpencoder.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmwfdinterface.so:system/vendor/lib/libmmwfdinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmwfdsinkinterface.so:system/vendor/lib/libmmwfdsinkinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libmmwfdsrcinterface.so:system/vendor/lib/libmmwfdsrcinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libnetmgr.so:system/vendor/lib/libnetmgr.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liboemcamera.so:system/vendor/lib/liboemcamera.so \
     vendor/nextbit/ether/proprietary/vendor/lib/liboemcrypto.so:system/vendor/lib/liboemcrypto.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libois_lc898122.so:system/vendor/lib/libois_lc898122.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libOmxAacDec.so:system/vendor/lib/libOmxAacDec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libOmxAmrwbplusDec.so:system/vendor/lib/libOmxAmrwbplusDec.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libOmxEvrcDec.so:system/vendor/lib/libOmxEvrcDec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libOmxMux.so:system/vendor/lib/libOmxMux.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libOmxQcelp13Dec.so:system/vendor/lib/libOmxQcelp13Dec.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libOmxWmaDec.so:system/vendor/lib/libOmxWmaDec.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libOpenCL.so:system/vendor/lib/libOpenCL.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libperipheral_client.so:system/vendor/lib/libperipheral_client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libpvr.so:system/vendor/lib/libpvr.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libQBLAS-0.11.38.so:system/vendor/lib/libQBLAS-0.11.38.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqcci_legacy.so:system/vendor/lib/libqcci_legacy.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libqcmaputils.so:system/vendor/lib/libqcmaputils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libqct_resampler.so:system/vendor/lib/libqct_resampler.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqdi.so:system/vendor/lib/libqdi.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqdp.so:system/vendor/lib/libqdp.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
@@ -522,36 +832,102 @@ PRODUCT_COPY_FILES += \
     vendor/nextbit/ether/proprietary/vendor/lib/libqomx_jpegenc_pipe.so:system/vendor/lib/libqomx_jpegenc_pipe.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqomx_jpegenc.so:system/vendor/lib/libqomx_jpegenc.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libQSEEComAPI.so:system/vendor/lib/libQSEEComAPI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libqti-at.so:system/vendor/lib/libqti-at.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libqti-gt.so:system/vendor/lib/libqti-gt.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libqti-perfd-client.so:system/vendor/lib/libqti-perfd-client.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libqti_performance.so:system/vendor/lib/libqti_performance.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libQtiTether.so:system/vendor/lib/libQtiTether.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libquipc_os_api.so:system/vendor/lib/libquipc_os_api.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/librcc.so:system/vendor/lib/librcc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rcsimssjni.so:system/vendor/lib/lib-rcsimssjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rcsjni.so:system/vendor/lib/lib-rcsjni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib_remote_simlock.so:system/vendor/lib/lib_remote_simlock.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libril-qc-ltedirectdisc.so:system/vendor/lib/libril-qc-ltedirectdisc.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libril-qc-qmi-1.so:system/vendor/lib/libril-qc-qmi-1.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libril-qc-radioconfig.so:system/vendor/lib/libril-qc-radioconfig.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libril-qcril-hook-oem.so:system/vendor/lib/libril-qcril-hook-oem.so \
     vendor/nextbit/ether/proprietary/vendor/lib/librilqmiservices.so:system/vendor/lib/librilqmiservices.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/librmp.so:system/vendor/lib/librmp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/librpmb.so:system/vendor/lib/librpmb.so \
     vendor/nextbit/ether/proprietary/vendor/lib/librs_adreno_sha1.so:system/vendor/lib/librs_adreno_sha1.so \
     vendor/nextbit/ether/proprietary/vendor/lib/librs_adreno.so:system/vendor/lib/librs_adreno.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libRSDriver_adreno.so:system/vendor/lib/libRSDriver_adreno.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rtpcommon.so:system/vendor/lib/lib-rtpcommon.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rtpcore.so:system/vendor/lib/lib-rtpcore.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rtpdaemoninterface.so:system/vendor/lib/lib-rtpdaemoninterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-rtpsl.so:system/vendor/lib/lib-rtpsl.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libSampleAuthJNI.so:system/vendor/lib/libSampleAuthJNI.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libscale.so:system/vendor/lib/libscale.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsd_sdk_display.so:system/vendor/lib/libsd_sdk_display.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/lib-sec-disp.so:system/vendor/lib/lib-sec-disp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libSecureSampleAuthClient.so:system/vendor/lib/libSecureSampleAuthClient.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libSecureSampleAuthJNI.so:system/vendor/lib/libSecureSampleAuthJNI.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libSecureUILib.so:system/vendor/lib/libSecureUILib.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsecureui.so:system/vendor/lib/libsecureui.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsecureuisvc_jni.so:system/vendor/lib/libsecureuisvc_jni.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsecureui_svcsock.so:system/vendor/lib/libsecureui_svcsock.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libsensor1.so:system/vendor/lib/libsensor1.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libsensor_reg.so:system/vendor/lib/libsensor_reg.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libsettings.so:system/vendor/lib/libsettings.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsi.so:system/vendor/lib/libsi.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libslimclient.so:system/vendor/lib/libslimclient.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libsmemlog.so:system/vendor/lib/libsmemlog.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libSonyIMX230PdafLibrary.so:system/vendor/lib/libSonyIMX230PdafLibrary.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsregex.so:system/vendor/lib/libsregex.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libssd.so:system/vendor/lib/libssd.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libStDrvInt.so:system/vendor/lib/libStDrvInt.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsubsystem_control.so:system/vendor/lib/libsubsystem_control.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libSubSystemShutdown.so:system/vendor/lib/libSubSystemShutdown.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsurround_3mic_proc.so:system/vendor/lib/libsurround_3mic_proc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libsystem_health_mon.so:system/vendor/lib/libsystem_health_mon.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libtar.so:system/vendor/lib/libtar.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libTimeService.so:system/vendor/lib/libTimeService.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libtzdrmgenprov.so:system/vendor/lib/libtzdrmgenprov.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libulp2.so:system/vendor/lib/libulp2.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libvendorconn.so:system/vendor/lib/libvendorconn.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libvoice-svc.so:system/vendor/lib/libvoice-svc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdavenhancements.so:system/vendor/lib/libwfdavenhancements.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdcommonutils.so:system/vendor/lib/libwfdcommonutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdhdcpcp.so:system/vendor/lib/libwfdhdcpcp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdmmsink.so:system/vendor/lib/libwfdmmsink.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdmmsrc.so:system/vendor/lib/libwfdmmsrc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdmmutils.so:system/vendor/lib/libwfdmmutils.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdnative.so:system/vendor/lib/libwfdnative.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdrtsp.so:system/vendor/lib/libwfdrtsp.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdservice.so:system/vendor/lib/libwfdservice.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfdsm.so:system/vendor/lib/libwfdsm.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfduibcinterface.so:system/vendor/lib/libwfduibcinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfduibcsinkinterface.so:system/vendor/lib/libwfduibcsinkinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfduibcsink.so:system/vendor/lib/libwfduibcsink.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfduibcsrcinterface.so:system/vendor/lib/libwfduibcsrcinterface.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwfduibcsrc.so:system/vendor/lib/libwfduibcsrc.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libwms.so:system/vendor/lib/libwms.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libwqe.so:system/vendor/lib/libwqe.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libxml.so:system/vendor/lib/libxml.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libxtadapter.so:system/vendor/lib/libxtadapter.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libxt_native.so:system/vendor/lib/libxt_native.so \
     vendor/nextbit/ether/proprietary/vendor/lib/libxtwifi_ulp_adaptor.so:system/vendor/lib/libxtwifi_ulp_adaptor.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/mediadrm/libdrmclearkeyplugin.so:system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
     vendor/nextbit/ether/proprietary/vendor/lib/mediadrm/libwvdrmengine.so:system/vendor/lib/mediadrm/libwvdrmengine.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so:system/vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so:system/vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so:system/vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so:system/vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so:system/vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/fastrpc_shell_0:system/vendor/lib/rfsa/adsp/fastrpc_shell_0 \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/libadsp_fd_skel.so:system/vendor/lib/rfsa/adsp/libadsp_fd_skel.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/libapps_mem_heap.so:system/vendor/lib/rfsa/adsp/libapps_mem_heap.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/libdspCV_skel.so:system/vendor/lib/rfsa/adsp/libdspCV_skel.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/libfastcvadsp_skel.so:system/vendor/lib/rfsa/adsp/libfastcvadsp_skel.so \
+    vendor/nextbit/ether/proprietary/vendor/lib/rfsa/adsp/libfastcvadsp.so:system/vendor/lib/rfsa/adsp/libfastcvadsp.so \
     vendor/nextbit/ether/proprietary/vendor/lib/sensors.ssc.so:system/vendor/lib/sensors.ssc.so \
     vendor/nextbit/ether/proprietary/vendor/lib/soundfx/libqcbassboost.so:system/vendor/lib/soundfx/libqcbassboost.so \
     vendor/nextbit/ether/proprietary/vendor/lib/soundfx/libqcreverb.so:system/vendor/lib/soundfx/libqcreverb.so \
     vendor/nextbit/ether/proprietary/vendor/lib/soundfx/libqcvirt.so:system/vendor/lib/soundfx/libqcvirt.so \
+    vendor/nextbit/ether/proprietary/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/nextbit/ether/proprietary/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd \
     vendor/nextbit/ether/proprietary/vendor/qcril.db:system/vendor/qcril.db
 
 PRODUCT_PACKAGES += \
@@ -561,7 +937,6 @@ PRODUCT_PACKAGES += \
     libqmiservices \
     libthermalclient \
     libtime_genoff \
-    com.quicinc.wbcserviceapp \
     datastatusnotification \
     fastdormancy \
     shutdownlistener \
@@ -573,5 +948,6 @@ PRODUCT_PACKAGES += \
     QtiTetherService \
     ims \
     imssettings \
+    SecProtect \
     qcnvitems \
     qcrilhook
