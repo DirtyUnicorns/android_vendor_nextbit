@@ -937,10 +937,12 @@ PRODUCT_PACKAGES += \
     libqmiservices \
     libthermalclient \
     libtime_genoff \
+    atfwd \
     datastatusnotification \
     fastdormancy \
     shutdownlistener \
     TimeService \
+    WfdService \
     CNEService \
     com.qualcomm.location \
     dpmserviceapp \
